@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Neptun 2</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/main.min.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo">
+        <img src="logo.png" alt="Neptun2 Logo" />
+      </div>
+
+      <ul id="nav-items">
+        <li class="nav-item">
+          <a href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/start.html">Get started</a>
+        </li>
+        <li class="nav-item active">
+          <a href="/contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="/about.html">About</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="contact">
+      <div class="left">
+        <table id="contact-table">
+          <tr>
+            <td>Phone number</td>
+            <td>+36 1 123 456</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>contact@neptun2.com</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>Hungary, 1111 Budapest, Magyar tudósok körútja 1.</td>
+          </tr>
+        </table>
+        <div class="image-container">
+          <img
+            src="images/multi-ethnic-group-young-men-women-studying-indoors_1139-989.jpg"
+            alt="People"
+          />
+        </div>
+      </div>
+      <div class="right">
+        <div class="title">
+          <h1 class="display">Contact us!</h1>
+          <h3>Any feedback is welcome,<br />to improve our app!</h3>
+        </div>
+
+        <form id="contact-form">
+          <input
+            type="email"
+            name="email"
+            id="email-input"
+            placeholder="Your email here ..."
+          />
+          <br />
+          <input type="radio" name="type" id="feedback" checked /> Feedback
+          <input type="radio" name="type" id="bug-report" /> Bug report
+          <br />
+          <textarea name="email-content" id="" cols="30" rows="10"></textarea>
+          <br />
+          <br />
+          <input type="checkbox" name="accept" id="accept-pp" /> I accept the
+          <span class="accent">privacy policy</span>
+          <br />
+
+          <button class="full">Send</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
