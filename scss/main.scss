@@ -12,6 +12,10 @@ $primary-color: #1594ff;
 
 html {
   font-size: 16px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 a {
@@ -42,6 +46,7 @@ button {
   font-size: 0.9rem;
   cursor: pointer;
   transition: opacity 200ms ease-out;
+  background: white;
 
   &:active {
     opacity: 0.5;
@@ -70,6 +75,16 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-flow: row wrap;
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+
+    #nav-items {
+      margin-top: 1rem;
+    }
+  }
 
   #logo {
     height: 70%;
@@ -137,7 +152,7 @@ main#home {
   .button-group {
     margin: 2rem;
     button {
-      margin: 0 2rem;
+      margin: 0.5rem 2rem;
       width: 10rem;
       white-space: nowrap;
       cursor: pointer;
@@ -203,10 +218,15 @@ main#contact {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   height: calc(100vh - 5rem);
 
+  @media screen and (max-width: 768px) {
+    height: unset;
+    margin-top: 2rem;
+  }
+
   .left {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 30% 70%;
+    grid-template-rows: 14rem auto;
     position: relative;
 
     #contact-table {
@@ -221,7 +241,6 @@ main#contact {
 
     .image-container {
       width: 100%;
-      margin-top: 1rem;
       position: relative;
 
       img {
@@ -284,6 +303,11 @@ main#contact {
 main#start {
   padding: 2rem;
   position: relative;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 2rem;
+  }
+
   .title {
     h1 {
       font-weight: 500;
@@ -292,7 +316,8 @@ main#start {
   }
 
   .steps {
-    max-width: 60%;
+    width: 60%;
+    min-width: 20rem;
     .step {
       margin: 4rem auto;
 
@@ -310,6 +335,17 @@ main#start {
     right: 2rem;
     top: 2rem;
     text-align: center;
+
+    @media screen and (max-width: 768px) {
+      position: relative;
+      width: 100%;
+      margin: auto 2rem;
+      margin-bottom: 2rem;
+
+      video {
+        margin: auto;
+      }
+    }
 
     video {
       background: #eee;
@@ -349,8 +385,9 @@ main#login {
     margin: auto;
     display: flex;
     flex-flow: column wrap;
-    width: 90%;
+    width: 80%;
     max-width: 400px;
+    position: relative;
 
     label {
       font-weight: 700;
@@ -375,6 +412,10 @@ main#login {
 main#about {
   padding: 2rem;
   position: relative;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 2rem;
+  }
 
   .title {
     margin-bottom: 2rem;
