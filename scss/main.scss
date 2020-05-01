@@ -37,7 +37,8 @@ p {
   color: #555;
 }
 
-button {
+button,
+.link-btn {
   padding: 1rem;
   color: $primary-color;
   border: 2px solid;
@@ -47,6 +48,8 @@ button {
   cursor: pointer;
   transition: opacity 200ms ease-out;
   background: white;
+
+  width: max-content;
 
   &:active {
     opacity: 0.5;
@@ -80,10 +83,6 @@ button {
   @media screen and (max-width: 768px) {
     justify-content: center;
     align-items: center;
-
-    #nav-items {
-      margin-top: 1rem;
-    }
   }
 
   #logo {
@@ -150,9 +149,13 @@ main#home {
   }
 
   .button-group {
-    margin: 2rem;
-    button {
-      margin: 0.5rem 2rem;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .link-btn {
+      margin: 0.5rem 1rem;
       width: 10rem;
       white-space: nowrap;
       cursor: pointer;
