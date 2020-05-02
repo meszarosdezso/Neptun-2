@@ -31,24 +31,29 @@
 
     <main id="contact">
       <div class="left">
-        <table id="contact-table">
-          <tr>
-            <td>Phone number</td>
-            <td>+36 1 123 456</td>
-          </tr>
-          <tr>
-            <td>Email</td>
-            <td>contact@neptun2.com</td>
-          </tr>
-          <tr>
-            <td>Address</td>
-            <td>Hungary, 1111 Budapest, Magyar tudósok körútja 1.</td>
-          </tr>
-        </table>
+        <details id="contact-info">
+          <summary>
+            Contact info
+          </summary>
+          <table id="contact-table">
+            <tr>
+              <th>Phone number</th>
+              <td>+36 1 123 456</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>contact@neptun2.com</td>
+            </tr>
+            <tr>
+              <th>Address</th>
+              <td>Hungary, 1111 Budapest, Magyar tudósok körútja 1.</td>
+            </tr>
+          </table>
+        </details>
         <div class="image-container">
           <img
             src="images/multi-ethnic-group-young-men-women-studying-indoors_1139-989.jpg"
-            alt="People"
+            alt="Multi ethnic group studying indoors."
           />
         </div>
       </div>
@@ -59,29 +64,45 @@
         </div>
 
         <form id="contact-form">
+          <label for="email-input">Your email</label>
           <input
             type="email"
-            name="email"
+            name="email-input"
             id="email-input"
-            placeholder="Your email here ..."
+            placeholder="Type your email here ..."
+            maxlength="42"
           />
+          <label for="email-type">What is your email about?</label>
           <br />
-          <input type="radio" name="type" id="feedback" checked /> Feedback
-          <input type="radio" name="type" id="bug-report" /> Bug report
+          <br />
+          <input type="radio" name="email-type" id="feedback" checked />
+          Feedback
+          <input
+            style="margin-left: 1rem;"
+            type="radio"
+            name="email-type"
+            id="bug-report"
+          />
+          Bug report
           <br />
           <textarea
             name="email-content"
             id="feedback-content"
             cols="30"
             rows="10"
+            maxlength="1000"
+            placeholder="Maximum 1000 characters!"
           ></textarea>
           <br />
           <br />
           <input type="checkbox" name="accept" id="accept-pp" /> I accept the
-          <span class="accent">privacy policy</span>
+          <a href="https://www.random.org/terms/privacy/" class="external"
+            >privacy policy</a
+          >.
           <br />
 
-          <button class="full">Send</button>
+          <button type="submit" class="full">Send</button>
+          <button class="small" type="reset" id="reset">Reset</button>
         </form>
       </div>
     </main>

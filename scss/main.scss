@@ -6,13 +6,14 @@ $primary-color: #1594ff;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Raleway;
+  font-family: Raleway, Helvetica, sans-serif;
   outline: none;
 }
 
 html {
   font-size: 16px;
 
+  // kisebb rem egység, kisebb képernyőkre
   @media screen and (max-width: 768px) {
     font-size: 14px;
   }
@@ -22,6 +23,16 @@ a {
   text-decoration: none;
   color: inherit;
   font: inherit;
+
+  &.external {
+    text-decoration: underline;
+
+    color: $primary-color;
+
+    &:visited {
+      color: #f7be2e;
+    }
+  }
 }
 
 h5 {
@@ -59,6 +70,11 @@ button,
     background: $primary-color;
     color: #fff;
     border-color: $primary-color;
+  }
+
+  &.small {
+    padding: 0.5rem;
+    width: max-content;
   }
 }
 
@@ -124,14 +140,15 @@ button,
 main#home {
   height: calc(100vh - 5rem);
   text-align: center;
-  .title {
+  header#home-title {
     padding-top: 6rem;
     padding-bottom: 5rem;
 
-    h3 {
+    p {
       text-transform: uppercase;
-      opacity: 0.5;
+      opacity: 0.7;
       letter-spacing: 0.5rem;
+      font-weight: 600;
     }
 
     h1 {
@@ -153,12 +170,14 @@ main#home {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 
     .link-btn {
       margin: 0.5rem 1rem;
       width: 10rem;
       white-space: nowrap;
       cursor: pointer;
+      z-index: 1;
     }
   }
 
@@ -170,41 +189,26 @@ main#home {
   }
 
   // IMAGES
-  #images {
-    z-index: -1;
-    width: 100%;
-    height: 40%;
-    transform: translateX(-50%);
-    left: 50%;
+
+  .image-container {
+    overflow: hidden;
     position: absolute;
-    bottom: 4rem;
-    display: flex;
-    justify-content: space-between;
+    bottom: 7rem;
+    object-fit: cover;
+    object-position: center;
+    height: 200px;
+    width: 20%;
 
-    .image-container {
-      width: 22%;
-      height: 100%;
-      max-width: 200px;
-      overflow: hidden;
-      position: relative;
-      object-fit: cover;
-      object-position: center;
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
 
-      img {
-        max-height: 100%;
-      }
+    img {
+      max-height: 100%;
+    }
 
-      &:first-of-type {
-        img {
-          transform: translateX(-150px);
-        }
-      }
-
-      &:nth-of-type(2) {
-        img {
-          transform: translateX(-50px);
-        }
-      }
+    &#index-image-right {
+      right: 0;
     }
   }
 
@@ -232,12 +236,26 @@ main#contact {
     grid-template-rows: 14rem auto;
     position: relative;
 
-    #contact-table {
-      margin: 1rem auto;
-      tr {
-        td {
-          padding: 1rem;
-          font-weight: 500;
+    #contact-info {
+      padding-left: 1rem;
+      caption {
+        font-size: 0.7rem;
+        font-weight: 400;
+      }
+      summary {
+        font-weight: 600;
+      }
+      #contact-table {
+        margin: 1rem auto;
+
+        tr {
+          td {
+            padding: 1rem;
+            font-weight: 500;
+          }
+          th {
+            text-align: left;
+          }
         }
       }
     }
@@ -269,11 +287,16 @@ main#contact {
         margin: 2rem auto;
         color: $primary-color;
         text-transform: uppercase;
+        font-size: 1rem;
       }
     }
 
     form#contact-form {
       width: 100%;
+
+      label {
+        color: #666;
+      }
       input {
         margin-bottom: 1rem;
         &[type="email"] {
@@ -291,6 +314,8 @@ main#contact {
       }
       textarea {
         width: 100%;
+        padding: 0.5rem;
+        color: #333;
       }
       button {
         margin: 1rem auto;
@@ -338,6 +363,7 @@ main#start {
     right: 2rem;
     top: 2rem;
     text-align: center;
+    border-radius: 0.3rem;
 
     @media screen and (max-width: 768px) {
       position: relative;
@@ -351,6 +377,7 @@ main#start {
     }
 
     video {
+      box-shadow: 0 2px 1rem #0004;
       background: #eee;
       width: 100%;
     }
@@ -367,6 +394,21 @@ main#start {
   }
 }
 
+// LOGIN PAGE
+
+body#login-page {
+  min-height: 100vh;
+  background-image: url("../images/discussing-video-course_1098-13061.jpg");
+  background-position: center;
+  background-size: cover;
+  backdrop-filter: blur(4px);
+  background-repeat: no-repeat;
+
+  #navbar {
+    color: white;
+  }
+}
+
 main#login {
   padding: 3rem;
   display: grid;
@@ -375,6 +417,7 @@ main#login {
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   align-items: center;
   height: calc(100vh - 6rem);
+  color: white;
 
   .title {
     margin-bottom: 3rem;
@@ -404,6 +447,9 @@ main#login {
       padding: 0.5rem;
       font-size: 1rem;
       margin-bottom: 1rem;
+      border-radius: 0.3rem;
+      border: none;
+
       &:focus {
         border: 2px solid $primary-color;
       }
@@ -412,7 +458,7 @@ main#login {
 }
 
 // ABOUT
-main#about {
+aside#about {
   padding: 2rem;
   position: relative;
 
@@ -450,5 +496,29 @@ main#about {
     z-index: -1;
     right: -1rem;
     opacity: 0.5;
+  }
+}
+
+footer {
+  padding: 2rem;
+  color: #aaa;
+}
+
+body#video-script {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  h1 {
+    margin-bottom: 4rem;
+  }
+
+  .paragraphs {
+    p {
+      margin: 2rem;
+      max-width: 500px;
+    }
   }
 }

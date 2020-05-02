@@ -6,6 +6,7 @@
     <title>Get started - Neptun 2</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/main.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
     <nav id="navbar">
@@ -38,16 +39,17 @@
         <div class="step">
           <h3>Requesting a new account</h3>
           <p>
-            You are getting a new account automatically, with your own Neptun
-            Code once your registration is accepted by the University.
+            You are getting a new account automatically, with your own
+            <strong>Neptun Code</strong> once your registration is accepted by
+            the University.
           </p>
         </div>
         <div class="step">
           <h3>Logging in for the first time</h3>
           <p>
-            Go to https://login.neptun2.com and click on "I'm new here". Then
-            you'll be asked for your Neptun Code, your student ID, and to
-            generate a new password.
+            Go to the login page with the button below. There you'll be asked
+            for your Neptun Code, your student ID, and to generate a new
+            password.
           </p>
           <p>
             Once you are logged in successfully, you can customize the theme of
@@ -62,9 +64,46 @@
       </div>
 
       <div class="video-container">
-        <video controls muted src="images/login.mov"></video>
-        <h5>Watch the tutorial for the first login</h5>
+        <figure>
+          <video
+            id="tutorial-video"
+            controls
+            muted
+            src="images/login.mov"
+          ></video>
+        </figure>
+        <h5>
+          <a href="video.html"
+            >Here is a page describing what's happening in the video.</a
+          >
+        </h5>
       </div>
     </main>
+
+    <script>
+      $(window).on("load", main)
+
+      function main(e) {
+        let isDark = false
+
+        const toogleDarkMode = (e) => {
+          $("body").css({
+            background: isDark ? "#fff" : "#111",
+            color: isDark ? "#000" : "#eee",
+          })
+
+          $(".link-btn")
+            .not(".full")
+            .css({
+              background: isDark ? "#fff" : "#111",
+            })
+
+          isDark = !isDark
+        }
+
+        $("#tutorial-video").on("play", toogleDarkMode)
+        $("#tutorial-video").on("pause", toogleDarkMode)
+      }
+    </script>
   </body>
 </html>
