@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Neptun 2</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="css/main.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body id="login-page">
     <nav id="navbar">
@@ -75,8 +75,45 @@
           minlength="6"
         />
         <br />
-        <button class="full">Let's go!</button>
+        <button
+          onclick="sendForm(event)"
+          type="submit"
+          id="login-form-submit"
+          class="full"
+        >
+          Let's go!
+        </button>
+        <br />
+        <span id="login-result"></span>
       </form>
     </main>
+
+    <script>
+      const sendForm = (e) => {
+        e.preventDefault()
+
+        const neptuncode = document.getElementById("neptuncode").value
+        const studentId = document.getElementById("studentid").value
+
+        const pw1 = document.getElementById("password1").value
+        const pw2 = document.getElementById("password2").value
+
+        const resElem = document.getElementById("login-result")
+
+        resElem.innerHTML = "Logging in..."
+
+        return new Promise((res, rej) => {
+          if (pw1 === pw2) {
+            setTimeout(() => {
+              res(`Successful login ${neptuncode}!`)
+            }, 2000)
+          } else {
+            rej(`Passwords don't match!`)
+          }
+        })
+          .then((data) => (resElem.innerHTML = data))
+          .catch((err) => (resElem.innerHTML = err))
+      }
+    </script>
   </body>
 </html>
